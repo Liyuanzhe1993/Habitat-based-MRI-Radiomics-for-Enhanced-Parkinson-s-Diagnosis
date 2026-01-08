@@ -1,0 +1,36 @@
+# ----------------------------------------------------------------------- #
+#                                                                         #
+#                               YMAL文件语法                               #
+#                       http://medai.icu/thread/677                       #
+#                                                                         #
+# ----------------------------------------------------------------------- #
+# 你自己的影像数据【目录】
+radio_dir: F:\OnekeyDS\CT
+# 带有group分组的label文件位置
+label_file: split_info\label-RND-0.csv
+habitats: [1, 2, 3, 4, 5]
+extractor_settings: 
+task_column: label
+dataset_column: group
+# 生境特征融合的手段，fill、remap、min、max、mean
+fusion_mode: fill
+ml_models:
+  - LR
+  - LightGBM
+  - SVM
+  - RandomForest
+  - XGBoost
+  - MLP
+  - ExtraTrees
+# 临床数据位置，不要有label和group信息
+clinic_file: F:\OnekeyDS\CT\clinical.csv
+p_value: 0.05
+# 使用MRMR模型筛选特征, 不输入数据的时候，不使用mRMR，默认不使用
+mrmr_sel_feature_num: 
+# 汇总的模型
+summary_model: [Clinic, Habitat]
+# 筛选的模型
+sel_model: LR
+font.size: 12
+# 是否显示视频
+DISABLE_VIDEO: True
